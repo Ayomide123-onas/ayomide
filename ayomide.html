@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ONAFEKO AYOMIDE - Personal Webpage</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        header img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border: 4px solid #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            margin: 10px 0 5px;
+            color: #333;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .about-me p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .hobbies table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .hobbies th,
+        .hobbies td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            color: #555;
+        }
+
+        .hobbies th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .contact-form button {
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #483d8b;
+        }
+
+        .audio,
+        .video-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="onas picture.jpg" alt="Portrait of Onafeko Ayomide" />
+        <h1>ONAFEKO AYOMIDE</h1>
+        <h1>24/15372</h1>
+        <p>Welcome to my personal webpage!</p>
+    </header>
+
+    <div class="container">
+        <section class="about-me">
+            <h2>About Me</h2>
+            <p>
+                Hello there! I'm ONAFEKO AYOMIDE, a student in the Computer Science
+                department at Caleb University. I'm currently learning about the exciting
+                world of web design, such as front-end development and creating interactive
+                websites. I'm eager to develop the skills to build user-friendly and engaging
+                websites. Outside of my studies, I also enjoy gaming, reading, and coding challenges.
+            </p>
+        </section>
+
+        <section class="hobbies">
+            <h2>My Hobbies</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hobbies</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gaming</td>
+                        <td>Playing lucrative games</td>
+                    </tr>
+                    <tr>
+                        <td>Reading</td>
+                        <td>Exploring new words</td>
+                    </tr>
+                    <tr>
+                        <td>Movies</td>
+                        <td>Entertaining myself</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <h4>Favourite App</h4>
+        <ul>
+            <li><a href="https://www.tiktok.com/" target="_blank">TIKTOK</a></li>
+            <li><a href="https://www.snapchat.com/" target="_blank">SNAPCHAT</a></li>
+            <li><a href="https://www.whatsapp.com/" target="_blank">WHATSAPP</a></li>
+        </ul>
+
+        <section class="video-section">
+            <h2>My Video</h2>
+            <video controls>
+                <source src="myvideo.mp4" type="video/mp4" />
+                <source src="myvideo.webm" type="video/webm" />
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <section class="audio">
+            <h2>My Audio</h2>
+            <audio controls>
+                <source src="voice.mp3" type="audio/mpeg">   <!-- Try this first -->
+                <source src="voice.ogg" type="audio/ogg">    <!-- Fallback if mp3 not supported -->
+                Your browser does not support the audio element.
+              </audio>
+              
+        </section>
+
+        <section class="contact-form">
+            <h2>Contact Me</h2>
+            <dl>
+                <dt>Email:</dt>
+                <dd>
+                    <a href="mailto:Ayomide.Onafekoug24@calebuniversity.edu.ng"
+                        >Ayomide.Onafekoug24@calebuniversity.edu.ng</a
+                    >
+                </dd>
+                <dt>Phone:</dt>
+                <dd>09129585297</dd>
+            </dl>
+        </section>
+    </div>
+</body>
+</html>
