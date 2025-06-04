@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Product Registration</title>
+    <style>
+        /* General Body and Background Styles (Elegant & Chic) */
+        body {
+            background: linear-gradient(to bottom, #fdf8f8, #f5eaea); /* Soft rose gradient */
+            font-family: 'Montserrat', sans-serif; /* Modern, clean sans-serif */
+            line-height: 1.8; /* More generous line spacing */
+            margin: 0;
+            padding: 0;
+            color: #4a4a4a; /* Deep charcoal grey for main text */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            padding: 40px 30px; /* Ample padding */
+            background-color: #ffffff; /* Crisp white header */
+            border-bottom: 1px solid #f0e1e1; /* Soft border */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08); /* More prominent, soft shadow */
+            margin-bottom: 50px; /* More space below header */
+            position: relative; /* For decorative element */
+            overflow: hidden; /* Ensure no overflow from decorative element */
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #e0b0b0, #d49a9a); /* Top accent bar */
+        }
+
+        header h1 {
+            color: #8a4a4a; /* Muted rose heading */
+            font-size: 2.8em; /* Larger, statement heading */
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif; /* Elegant serif font for headings */
+            letter-spacing: 1px;
+        }
+
+        header img {
+            margin-bottom: 25px; /* More space below image */
+            border-radius: 10px; /* Slightly rounded rectangle image */
+            border: 2px solid #e0b0b0; /* Soft rose border */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        header p {
+            color: #6a6a6a;
+            font-size: 1.25em; /* Slightly larger text */
+            margin-bottom: 30px;
+            font-weight: 300; /* Lighter font weight */
+        }
+
+        header button {
+            padding: 16px 35px; /* Generous button size */
+            background: linear-gradient(to right, #d49a9a, #c07a7a); /* Rose gradient button */
+            color: white;
+            border: none;
+            border-radius: 5px; /* Slightly squared-off, modern button */
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 600; /* Semi-bold */
+            letter-spacing: 0.8px;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        header button:hover {
+            background: linear-gradient(to right, #c07a7a, #a86262);
+            transform: translateY(-4px); /* More pronounced lift on hover */
+            box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+        }
+
+        /* Main content area */
+        main {
+            max-width: 750px; /* Slightly narrower content area */
+            margin: 0 auto 60px auto; /* Centered with generous bottom margin */
+            padding: 40px; /* More padding inside the main content box */
+            background-color: #ffffff;
+            border-radius: 18px; /* More rounded corners */
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12); /* Stronger, elegant shadow */
+            flex-grow: 1;
+            position: relative;
+        }
+
+        main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, #d49a9a, #e0b0b0); /* Top accent line */
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+        }
+
+
+        /* Section headings */
+        h2 {
+            color: #8a4a4a; /* Muted rose heading */
+            border-bottom: 1px solid #f0e1e1; /* Very subtle border */
+            padding-bottom: 18px;
+            margin-bottom: 35px;
+            font-size: 2.2em;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Form styling */
+        form fieldset {
+            border: none; /* No border for a cleaner look */
+            padding: 0; /* Remove default fieldset padding */
+            margin-bottom: 40px;
+            background-color: #fcfafa; /* Very subtle off-white for fieldset background */
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.03); /* Very soft inner shadow */
+        }
+
+        form legend {
+            font-weight: bold;
+            color: #5a5a5a; /* Deeper grey legend color */
+            padding: 10px 20px;
+            font-size: 1.4em;
+            background-color: #fdf8f8; /* Matches body background for legend background */
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            margin-bottom: 25px; /* Space below legend */
+            margin-left: auto; /* Center legend */
+            margin-right: auto; /* Center legend */
+            display: table; /* To allow auto margins to center */
+            border: 1px solid #f0e1e1;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 15px; /* More space between labels */
+            font-weight: 500; /* Medium font weight */
+            color: #555;
+            font-size: 1.05em;
+        }
+
+        form input[type="text"],
+        form input[type="email"],
+        form input[type="date"],
+        form select,
+        form textarea {
+            width: calc(100% - 30px); /* Adjust for padding */
+            padding: 15px; /* More generous padding */
+            margin-bottom: 25px;
+            border: 1px solid #e0e0e0; /* Light, elegant border */
+            border-radius: 8px; /* Rounded inputs */
+            box-sizing: border-box;
+            font-size: 1.05em;
+            background-color: #ffffff;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form input[type="date"]:focus,
+        form select:focus,
+        form textarea:focus {
+            border-color: #d49a9a; /* Highlight border with rose on focus */
+            box-shadow: 0 0 0 5px rgba(212,154,154,0.2); /* Soft rose glow on focus */
+            outline: none;
+        }
+
+        form input[type="checkbox"] {
+            margin-right: 12px;
+            transform: scale(1.2); /* Slightly larger checkbox */
+        }
+
+        form button[type="submit"],
+        form button[type="reset"] {
+            padding: 16px 35px;
+            background: linear-gradient(to right, #d49a9a, #c07a7a); /* Rose gradient */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.15em;
+            font-weight: 600;
+            margin-right: 20px;
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        form button[type="reset"] {
+            background: linear-gradient(to right, #b0b0b0, #9a9a9a); /* Grey gradient for reset */
+        }
+
+        form button[type="submit"]:hover {
+            background: linear-gradient(to right, #c07a7a, #a86262);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+        }
+
+        form button[type="reset"]:hover {
+            background: linear-gradient(to right, #9a9a9a, #808080);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 30px;
+            border-radius: 12px; /* More rounded corners for table */
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Elegant shadow for table */
+        }
+
+        table th,
+        table td {
+            border: 1px solid #f0e1e1; /* Soft rose borders */
+            padding: 16px 20px; /* Generous padding in cells */
+            text-align: left;
+        }
+
+        table th {
+            background-color: #fdf8f8; /* Matches body/legend background */
+            font-weight: 700;
+            color: #8a4a4a; /* Muted rose text for headers */
+            border-top: none;
+            font-size: 1.1em;
+        }
+
+        table th:first-child {
+            border-top-left-radius: 12px;
+        }
+
+        table th:last-child {
+            border-top-right-radius: 12px;
+        }
+
+        table tbody tr:nth-child(even) {
+            background-color: #fffafa; /* Very light subtle tint for even rows */
+        }
+
+        table tbody tr:nth-child(odd) {
+            background-color: #ffffff; /* White for odd rows */
+        }
+
+        table tfoot td {
+            background-color: #f5eaea; /* Matches main background for footer */
+            font-style: italic;
+            color: #666;
+            padding: 20px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            border-bottom: none;
+            font-size: 0.95em;
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background-color: #fdf8f8; /* Matches body/legend background */
+            color: #777;
+            font-size: 0.95em;
+            border-top: 1px solid #f0e1e1;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05); /* Shadow for footer */
+        }
+
+        footer a {
+            color: #c07a7a; /* Rose link color */
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #8a4a4a;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Product Family</h1>
+        <img src="placeholder-girlfriend.jpg" alt="Elegant Product Branding" width="150" height="150">
+        <p>Register your product to unlock exclusive benefits and ensure your peace of mind.</p>
+        <button type="button">Begin Your Registration</button>
+    </header>
+
+    <main>
+        <section id="registration-form">
+            <h2>Register Your New Item</h2>
+            <form action="/submit_girlfriend_product_registration" method="post">
+                <fieldset>
+                    <legend>Your Product Details</legend>
+
+                    <label for="product-name">Product Name:</label>
+                    <input type="text" id="product-name" name="product_name" placeholder="e.g., Luxe Beauty Device, Smart Kitchen Hub" required>
+
+                    <label for="product-category">Product Type:</label>
+                    <select id="product-category" name="product_category" required>
+                        <option value="">Select an Item Type</option>
+                        <option value="beauty-wellness">Beauty & Wellness</option>
+                        <option value="fashion-accessories">Fashion & Accessories</option>
+                        <option value="home-decor">Home Decor</option>
+                        <option value="personal-tech">Personal Technology</option>
+                        <option value="gourmet-kitchen">Gourmet Kitchen</option>
+                        </select>
+
+                    <label for="purchase-date">Purchase Date:</label>
+                    <input type="date" id="purchase-date" name="purchase_date" required>
+
+                    <label for="serial-number">Serial or Batch Number:</label>
+                    <input type="text" id="serial-number" name="serial_number" placeholder="Located on product or packaging" required>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Your Personal Information</legend>
+
+                    <label for="your-name">Full Name:</label>
+                    <input type="text" id="your-name" name="your_name" placeholder="First Name Last Name" required>
+
+                    <label for="your-email">Email Address:</label>
+                    <input type="email" id="your-email" name="your_email" placeholder="you@example.com" required>
+
+                    <label for="manufacture-date">Date of Manufacture (Optional):</label>
+                    <input type="date" id="manufacture-date" name="manufacture_date">
+
+                    <input type="checkbox" id="warranty-opt-in" name="warranty_opt-in" value="yes">
+                    <label for="warranty-opt-in">Yes, I wish to receive special offers and warranty notifications.</label>
+
+                    <label for="additional-comments">Any Additional Notes or Feedback:</label>
+                    <textarea id="additional-comments" name="additional_comments" rows="6" placeholder="Tell us more about your purchase experience or ask a question."></textarea>
+                </fieldset>
+
+                <button type="submit">Complete Registration</button>
+                <button type="reset">Clear All Fields</button>
+            </form>
+        </section>
+
+        <section id="product-compatibility">
+            <h2>Product Care & Compatibility</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Care Item/Accessory</th>
+                        <th>Usage Notes</th>
+                        <th>Frequency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cleaning Cloth (Microfiber)</td>
+                        <td>Gentle wipe for surfaces</td>
+                        <td>Daily/As needed</td>
+                    </tr>
+                    <tr>
+                        <td>Charging Dock (Type C)</td>
+                        <td>For optimal charging speed</td>
+                        <td>As needed</td>
+                    </tr>
+                    <tr>
+                        <td>Specialty Polish/Serum</td>
+                        <td>Apply thin layer for shine</td>
+                        <td>Monthly/Quarterly</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Always refer to the included care guide for best results and product longevity.</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 [Your Company Name] | All Rights Reserved.</p>
+        <p><a href="#" style="color: #c07a7a; text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: #c07a7a; text-decoration: none;">Terms of Service</a> | <a href="#" style="color: #c07a7a; text-decoration: none;">Contact Support</a></p>
+    </footer>
+</body>
+</html>
